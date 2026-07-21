@@ -1,15 +1,16 @@
 import { Composer } from "grammy";
-
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
+import { inlineButton, inlineKeyboard } from "../toolkit/index.js";
 
 const composer = new Composer();
 
+const STICKER_RESPONSE = "🎁 Here's a kasuri-style sticker for you!";
+
 composer.command("sticker", async (ctx) => {
-  await ctx.reply("Request a random kasuri-style sticker");
+  await ctx.reply(STICKER_RESPONSE, {
+    reply_markup: inlineKeyboard([
+      [inlineButton("⬅️ Back to menu", "menu:main")],
+    ]),
+  });
 });
 
 export default composer;
