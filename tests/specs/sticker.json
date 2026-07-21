@@ -3,17 +3,15 @@
     "name": "/sticker",
     "steps": [
       {
+        "send": { "text": "/sticker" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Request a random kasuri-style sticker"
+              "text": "🎁 Here's a kasuri-style sticker for you!"
             }
           }
-        ],
-        "send": {
-          "text": "/sticker"
-        }
+        ]
       }
     ]
   }
